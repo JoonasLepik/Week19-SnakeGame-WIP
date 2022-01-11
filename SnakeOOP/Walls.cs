@@ -31,6 +31,7 @@ namespace SnakeOOP
         {
             foreach(var wall in wallList)
             {
+                Console.ForegroundColor = ConsoleColor.Blue;
                 wall.Draw();
             }
         }

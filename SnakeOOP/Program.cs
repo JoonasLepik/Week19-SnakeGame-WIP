@@ -30,6 +30,7 @@ namespace SnakeOOP
                 {
                     food = foodGenerator.GenerateFood();
                     food.Draw();
+                    Console.Beep();
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     score++;
                 }
@@ -43,7 +44,7 @@ namespace SnakeOOP
                     ConsoleKeyInfo key = Console.ReadKey();
                     snake.HandleKeys(key.Key);
                 }
-                Thread.Sleep(200);
+                Thread.Sleep(150);
 
             }
             string str_score = Convert.ToString(score);
@@ -54,18 +55,18 @@ namespace SnakeOOP
 
             
 
-        public static void WriteGameOver(string score) 
+        public static void WriteGameOver(string score)
         {
             int xOffset = 25;
             int yOffset = 8;
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.SetCursorPosition(xOffset, yOffset++);
             WriteText("============================", xOffset, yOffset++);
-            WriteText("         GAME OVER      ", xOffset+1, yOffset++);
+            WriteText("         GAME OVER          ", xOffset, yOffset++);
             yOffset++;
-            WriteText($"You scored {score} points", xOffset + 2, yOffset++);
+            WriteText($"You scored {score} points!", xOffset + 4, yOffset++);
             WriteText("", xOffset+1, yOffset++);
-            WriteText("============================", xOffset, yOffset++);
+            WriteText("============================", xOffset, yOffset++);            
         }
 
         public static void WriteText(String text, int xOffset, int yOffset)
@@ -79,7 +80,9 @@ namespace SnakeOOP
             int yOffset = 0;
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.SetCursorPosition(xOffset, yOffset++);
-            Console.WriteLine($"Score: {score}", xOffset, yOffset);            
+            Console.WriteLine($"Score: {score}", xOffset, yOffset);
+            return;
         }
+
     }
 }
